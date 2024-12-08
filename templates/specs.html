@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Список характеристик</h1>
+<a href="{{ url_for('add_spec') }}" class="btn btn-primary">Додати Характеристику</a>
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Двигун</th>
+            <th>Кінські сили</th>
+            <th>Тип палива</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for spec in specs %}
+        <tr>
+            <td>{{ spec.engine }}</td>
+            <td>{{ spec.horsepower }}</td>
+            <td>{{ spec.fuel_type }}</td>
+            <td>
+                <a href="{{ url_for('edit_spec', spec_id=spec._id) }}" class="btn btn-warning">Редагувати</a>
+                <a href="{{ url_for('delete_spec', spec_id=spec._id) }}" class="btn btn-danger">Видалити</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

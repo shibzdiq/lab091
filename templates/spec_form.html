@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ 'Редагувати' if spec else 'Додати' }} Характеристику</h1>
+<form method="post">
+    <div class="mb-3">
+        <label for="engine" class="form-label">Двигун</label>
+        <input type="text" class="form-control" id="engine" name="engine" value="{{ spec.engine if spec else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="horsepower" class="form-label">Кінські сили</label>
+        <input type="number" class="form-control" id="horsepower" name="horsepower" value="{{ spec.horsepower if spec else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="fuel_type" class="form-label">Тип палива</label>
+        <input type="text" class="form-control" id="fuel_type" name="fuel_type" value="{{ spec.fuel_type if spec else '' }}">
+    </div>
+    <button type="submit" class="btn btn-success">Зберегти</button>
+</form>
+{% endblock %}
+

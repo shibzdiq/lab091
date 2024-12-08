@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ 'Редагувати' if car else 'Додати' }} Автомобіль</h1>
+<form method="post">
+    <div class="mb-3">
+        <label for="make" class="form-label">Марка</label>
+        <input type="text" class="form-control" id="make" name="make" value="{{ car.make if car else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="model" class="form-label">Модель</label>
+        <input type="text" class="form-control" id="model" name="model" value="{{ car.model if car else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="year" class="form-label">Рік</label>
+        <input type="number" class="form-control" id="year" name="year" value="{{ car.year if car else '' }}">
+    </div>
+    <button type="submit" class="btn btn-success">Зберегти</button>
+</form>
+{% endblock %}
